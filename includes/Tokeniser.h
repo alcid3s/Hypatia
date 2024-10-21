@@ -15,12 +15,12 @@ enum class TokenType {
     _function,
     _return,
     _var_type,
-}
+};
 
 struct Token {
     TokenType type;
     std::string value;
-}
+};
 
 class Tokeniser {
     private:
