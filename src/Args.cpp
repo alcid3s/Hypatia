@@ -1,4 +1,5 @@
 #include "Args.h"
+#include "Tokeniser.h"
 
 Args::Args(int argc, char** argv) {
     int opt;
@@ -22,4 +23,14 @@ Args::Args(int argc, char** argv) {
 
 Args::~Args() {
 
+}
+
+void Args::parse_files(std::vector<std::string> &files) {
+    std::stringstream ss(this->get_input_files());
+    std::string t;
+    char del = ',';
+
+    while(getline(ss, t, del)) {
+        files.push_back(t);
+    }
 }
