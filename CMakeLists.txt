@@ -9,6 +9,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 
 include_directories(includes)
 
-set(SRCS main.cpp src/Args.cpp)
+set(SRCS main.cpp src/Args.cpp src/Tokeniser.cpp)
 
 add_executable(hypatia ${SRCS})

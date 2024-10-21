@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <fstream>
 
 enum class TokenType {
     _if,
@@ -26,9 +27,13 @@ class Tokeniser {
     private:
         std::vector<Token> tokens;
 
+        Token identify_token(std::string string);
+
     public:
         Tokeniser();
         ~Tokeniser();
+
+        void tokenise(std::ifstream &file);
 };
 
 #endif

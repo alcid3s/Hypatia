@@ -4,6 +4,7 @@
 #include <memory>
 #include <fstream>
 #include "Args.h"
+#include "Tokeniser.h"
 
 int main(int argc, char** argv) {
     std::unique_ptr<Args> args = nullptr;
@@ -21,20 +22,16 @@ int main(int argc, char** argv) {
         args->parse_files(files);
     }
 
+    Tokeniser* tokeniser = new Tokeniser();
     for (auto &&filename : files)
     {
         std::ifstream file(filename);
-        std::string line;
-
         if(file.is_open()) {
-            while(getline(file, line)) {
-                std::cout << line << std::endl;
-            }
+            tokeniser->tokenise(file);
         } else {
             fprintf(stderr, "Error: Could not open file %s\n", filename.c_str());
         }
     }
     
-
     return 0;
 }
