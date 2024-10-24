@@ -9,19 +9,25 @@
 
 class Tokeniser {
     private:
-        std::vector<Token> tokens;
+        //debug / logging
+        std::string tokenTypeToString(TokenType type);
 
+        // identify symbol
+        bool is_keyword(std::string symbol);
+        bool is_operator(std::string symbol);
+        bool is_punctuation(std::string symbol);
+        bool is_literal(std::string symbol);
+        bool is_identifier(std::string symbol);
+        bool is_symbol(std::string symbol);
         Token identify_token(std::string string);
-        std::vector<int> identify_delimeter(std::string line, char delimiter);
-        std::vector<std::string> analyse_default_line(std::string line);
-        std::vector<std::string> analyse_delimiter_line(std::string line);
 
+        std::vector<std::string> analyse_line(std::string line);
     public:
         Tokeniser();
         ~Tokeniser();
 
         std::vector<std::vector<std::string>> analyse(std::ifstream &file);
-        void tokenise(std::vector<std::vector<std::string>> symbols);
+        std::vector<Token> tokenise(std::vector<std::vector<std::string>> symbols);
 };
 
 #endif
