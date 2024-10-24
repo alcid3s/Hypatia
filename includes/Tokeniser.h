@@ -1,27 +1,11 @@
-#ifndef TOKENISER
-#define TOKENISER
+#ifndef TOKENISER_H
+#define TOKENISER_H
 
 #include <string>
 #include <vector>
 #include <fstream>
+#include "Token.h"
 
-enum class TokenType {
-    _if,
-    _elif,
-    _else,
-    _while,
-    _for,
-    _open_param,
-    _close_param,
-    _function,
-    _return,
-    _var_type,
-};
-
-struct Token {
-    TokenType type;
-    std::string value;
-};
 
 class Tokeniser {
     private:
@@ -38,7 +22,6 @@ class Tokeniser {
 
         std::vector<std::vector<std::string>> analyse(std::ifstream &file);
         void tokenise(std::vector<std::vector<std::string>> symbols);
-
 };
 
 #endif

@@ -1,5 +1,5 @@
-#ifndef ARGS
-#define ARGS
+#ifndef ARGS_H
+#define ARGS_H
 
 #include <string>
 #include <stdexcept>
