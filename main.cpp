@@ -27,7 +27,8 @@ int main(int argc, char** argv) {
     {
         std::ifstream file(filename);
         if(file.is_open()) {
-            tokeniser->tokenise(file);
+            auto symbols = tokeniser->analyse(file);
+            tokeniser->tokenise(symbols);
         } else {
             fprintf(stderr, "Error: Could not open file %s\n", filename.c_str());
         }
